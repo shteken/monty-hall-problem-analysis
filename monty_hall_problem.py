@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 
 def simulate_monty_hall(iter=1000):
 
-    def monty_hole():
+    def monty_hall():
         doors = [True, False, False] # generate doors
         random.shuffle(doors)
         c1 = random.randint(0,2)
@@ -20,7 +20,7 @@ def simulate_monty_hall(iter=1000):
 
     results = []
     for _ in range(iter):
-        results.append(monty_hole())
+        results.append(monty_hall())
 
     counter_for_chosen = 0
     for result in results:
