@@ -7,10 +7,10 @@ import pandas as pd
 width = 0.0015
 x = np.linspace(0.25, 0.4, 100)
 
-def distribition_monty_hole(iters = 100, n = 1000):
+def distribition_monty_hall(iters = 100, n = 1000):
     results = []
     for _ in range(iters):
-        results.append(mhp.simulate_monty_hole(n))
+        results.append(mhp.simulate_monty_hall(n))
     return results
 
 def hist(results):
@@ -68,9 +68,9 @@ def matrix_plot(ns, iters, func):
         for iter_id, iter in enumerate(iters):
             #print('n: ', n, 'iter: ', iter)
             if func == plot_npp:
-                dist = distribition_monty_hole(iter, n)
+                dist = distribition_monty_hall(iter, n)
             else:
-                dist = hist(distribition_monty_hole(iter, n))
+                dist = hist(distribition_monty_hall(iter, n))
             func(dist, axs[n_id, iter_id])
             if iter_id == 0:
                 axs[n_id, iter_id].set_ylabel(f'n = {n}')
@@ -84,7 +84,7 @@ def print_estimates(ns, iters):
     for n in ns:
         dict_help = {}
         for iter in iters:
-            dist = hist(distribition_monty_hole(iter, n))
+            dist = hist(distribition_monty_hall(iter, n))
             dict_help[iter] = estimates(dist)
         dict_estimates[n] = dict_help
     df = pd.DataFrame.from_dict(dict_estimates, orient='index')

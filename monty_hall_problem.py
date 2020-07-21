@@ -1,7 +1,7 @@
 import random
 from matplotlib import pyplot as plt
 
-def simulate_monty_hole(iter=1000):
+def simulate_monty_hall(iter=1000):
 
     def monty_hole():
         doors = [True, False, False] # generate doors
@@ -30,4 +30,4 @@ def simulate_monty_hole(iter=1000):
     return counter_for_chosen/iter
 
 if __name__ == '__main__':
-    print(simulate_monty_hole())
+    print(simulate_monty_hall())
