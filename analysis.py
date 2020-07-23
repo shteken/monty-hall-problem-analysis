@@ -4,9 +4,6 @@ import numpy as np
 from scipy import stats
 import pandas as pd
 
-width = 0.0015
-x = np.linspace(0.25, 0.4, 100)
-
 def distribition_monty_hall(iters = 100, n = 1000):
     results = []
     for _ in range(iters):
@@ -18,15 +15,15 @@ def hist(results):
     dist = stats.rv_histogram(hist)
     return dist
 
-def plot_hist(dist, ax=plt):
-    y_pdf = dist.pdf(x)  
-    ax.bar(x, y_pdf, label='Histogram', width=width)
+def plot_hist(results, ax=plt):
+    ax.hist(results, label='Histogram')
 
-def plot_cdf(dist, ax=plt): 
+def plot_cdf(dist, ax=plt):
+    x = np.linspace(0, 1, 100)
     y_cdf = dist.cdf(x)  
     ax.plot(x, y_cdf, label='CDF')
 
-def mean_std(results):  
+def mean_std(results):
     mean = np.mean(results)
     std = np.std(results, ddof=1)
     return mean, std
@@ -67,7 +64,7 @@ def matrix_plot(ns, iters, func):
     for n_id, n in enumerate(ns):
         for iter_id, iter in enumerate(iters):
             #print('n: ', n, 'iter: ', iter)
-            if func == plot_npp:
+            if func == plot_npp or func == plot_hist:
                 dist = distribition_monty_hall(iter, n)
             else:
                 dist = hist(distribition_monty_hall(iter, n))
