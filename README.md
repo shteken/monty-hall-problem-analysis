@@ -8,7 +8,7 @@ According to the statistics, this ratio is 1/3. Which means you want to change t
 I wanted to test this number.
 
 If you view the analysis.py code you will identify 2 main varibles - n and iter:
-1. n - number of independent games the participent plays. Out of it, we can caluculate the success ratio - should be about 1/3. When n is bigger - the closer we get to 1/3.
+1. n - number of independent games the participent plays. Out of it, we can calculate the success ratio - should be about 1/3. When n is bigger - the closer we get to 1/3.
 
 2. iter - number of tests we conduct to get the distribution of the success ratio. Out of it, we have an object with length iter which each value is the success ratio of n independent games. When iter is bigger - the closer we get to success ratio of 1/3.
 
